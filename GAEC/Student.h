@@ -6,8 +6,7 @@ using namespace std;
 
 class Student {
 public:
-	string Nume, Prenume, Facultate;
-	int Varsta;
+	string Nume, Prenume, Facultate, Varsta;
 };
 
 

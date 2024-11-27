@@ -10,8 +10,20 @@ using namespace std;
 
 void Inregistrare()
 {
+	system("cls");
 	ofstream o("Studenti.txt", std::ios::app);
+	if (!o.is_open()) 
+	{
+		cerr << "S-a produs o eroare" << '\n';
+		return;
+	}
+
 	Student s;
+	cout << '\n';
+	cout << "===============================" << '\n';
+	cout << "=         GAEC PROGRAM        =" << '\n';
+	cout << "===============================" << '\n';
+	cout << '\n';
 	cout << "Numele:";
 	cin >> s.Nume;
 	o << s.Nume << " ";
@@ -24,11 +36,17 @@ void Inregistrare()
 	cout << "Varsta:";
 	cin >> s.Varsta;
 	o << s.Varsta << " ";
-	o << endl;
-	cout << endl;
+	o << '\n';
+	system("cls");
+	cout << '\n';
+	cout << "===============================" << '\n';
+	cout << "=         GAEC PROGRAM        =" << '\n';
+	cout << "===============================" << '\n';
+	cout << '\n';
+	cout << "Student inregistrat cu succes, apasati enter pentru a reveni la meniul principal." << '\n';
 	o.close();
 }
-bool isFileEffectivelyEmpty(const string& filePath) 
+bool isEmpty(const string& filePath) 
 {
 	ifstream file(filePath);
 	if (!file) 
@@ -51,36 +69,33 @@ bool isFileEffectivelyEmpty(const string& filePath)
 
 void Afisaretext() 
 {
+	system("cls");
 	ifstream file("Studenti.txt");
-	if (!file) 
+	if (!file.is_open()) 
 	{
 		cerr << "S-a produs o eroare." << '\n';
 		return;
 	}
 
-	if (isFileEffectivelyEmpty("Studenti.txt")) 
+	if (isEmpty("Studenti.txt")) 
 	{
 		cout << "Nu exista niciun student inscris in program" << '\n';
 	}
 	else 
 	{
 		string line;
+		cout << '\n';
+		cout << "===============================" << '\n';
+		cout << "=         GAEC PROGRAM        =" << '\n';
+		cout << "===============================" << '\n';
+		cout << '\n';
 		while (getline(file, line)) 
 		{
 			cout << line << '\n';
-		}           
-		cout << "Doriti sa iesiti din program ?(Y/N) " << '\n';
-		char p;
-		cin >> p;
-		if ((p == 'Y') || (p == 'y'))
-		{
-			exit(0);
 		}
-		else if ((p == 'N') || (p == 'n'))
-		{
-			return;
-		}
-		
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul principal." << '\n';
+		return;
 	}
 
 	file.close();
@@ -90,7 +105,7 @@ void Changedata()
 {
 	system("cls");
 	ifstream file("Studenti.txt");
-	if (!file)
+	if (!file.is_open())
 	{
 		cerr << "S-a produs o eroare." << '\n';
 		return;
@@ -105,16 +120,25 @@ void Changedata()
 	if (lines.empty())
 	{
 		cout << "Nu exista niciun student inscris in program." << '\n';
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
 		return;
 	}
+	cout << '\n';
+	cout << "===============================" << '\n';
+	cout << "=         GAEC PROGRAM        =" << '\n';
+	cout << "===============================" << '\n';
+	cout << '\n';
 	cout << "Lista studentilor inscrisi:" << '\n';
 	for (size_t i = 0; i < lines.size(); i++)
 		cout << i + 1 << ". " << lines[i] << '\n';
 	int nrstudent;
-	cout << "Introduceti numarul studentului pe care doriti sa il modificati (0 pentru a iesi):" << '\n';
+	cout << "Introduceti numarul studentului pe care doriti sa il modificati ( 0 pentru a iesi ):" << '\n';
 	cin >> nrstudent;
 	if (nrstudent == 0 || nrstudent > (int)lines.size())
 	{
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
 		return;
 	}
 	string nume, prenume, facultate, varsta;
@@ -172,11 +196,97 @@ void Changedata()
 	updatedLine << nume << " " << prenume << " " << facultate << " " << varsta;
 	lines[nrstudent - 1] = updatedLine.str();
 	ofstream outFile("Studenti.txt");
+	if (!outFile.is_open())
+	{
+		cerr << "S-a produs o eroare." << '\n';
+		return;
+	}
 	for (const auto& l : lines)
 	{
 		outFile << l << endl;
 	}
 	outFile.close();
+}
+void StergereStudent()
+{
+	system("cls");
+	ifstream file("Studenti.txt");
+	if (!file.is_open())
+	{
+		cerr << "S-a produs o eroare." << '\n';
+		return;
+	}
+
+	vector<string> lines;
+	string line;
+	while (getline(file, line))
+	{
+		lines.push_back(line);
+	}
+	file.close();
+
+	if (lines.empty())
+	{
+		cout << '\n';
+		cout << "===============================" << '\n';
+		cout << "=         GAEC PROGRAM        =" << '\n';
+		cout << "===============================" << '\n';
+		cout << '\n';
+		cout << "Nu este niciun student inscris in programul nostru." << '\n';
+	}
+	cout << '\n';
+	cout << "===============================" << '\n';
+	cout << "=         GAEC PROGRAM        =" << '\n';
+	cout << "===============================" << '\n';
+	cout << '\n';
+	cout << "Lista de studenti: " << '\n';
+	for (size_t i = 0; i < lines.size(); i++)
+	{
+		cout << i + 1 << ". " << lines[i] << '\n';
+	}
+	int nrstudent;
+	cout << "Numarul studentului pe care doriti sa-l stergeti. ( 0 pentru a iesi )" << '\n';
+	cin >> nrstudent;
+	if (nrstudent == 0)
+	{
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
+		return;
+	}
+
+	if (nrstudent < 1 || nrstudent > lines.size())
+	{
+		cout << '\n';
+		cout << "===============================" << '\n';
+		cout << "=         GAEC PROGRAM        =" << '\n';
+		cout << "===============================" << '\n';
+		cout << '\n';
+		cout << "Numarul studentului este invalid" << '\n';
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
+		return;
+	}
+
+	lines.erase(lines.begin() + nrstudent - 1);
+
+	ofstream outFile("Studenti.txt");
+	if (!outFile.is_open())
+	{
+		cerr << "S-a produs o eroare." << '\n';
+		return;
+	}
+	for (const auto& l : lines)
+	{
+		outFile << l << endl;
+	}
+	outFile.close();
+	system("cls");
+	cout << '\n';
+	cout << "===============================" << '\n';
+	cout << "=         GAEC PROGRAM        =" << '\n';
+	cout << "===============================" << '\n';
+	cout << '\n';
+	cout << "Studentul a fost sters din program." << '\n';
 }
 
 void FirstMenu()
@@ -230,9 +340,8 @@ void FirstMenu()
 				if (n == 1)
 				{
 					Inregistrare();
-					cout << "Student inregistrat cu succes!" << '\n';
-					cout << endl;
 					cin.ignore();
+					cin.get();
 				}
 				else if (n == 2)
 				{
@@ -244,7 +353,14 @@ void FirstMenu()
 				{
 					Changedata();
 					cin.ignore();
+					cin.get();
 
+				}
+				else if (n == 4)
+				{
+					StergereStudent();
+					cin.ignore();
+					cin.get();
 				}
 				else if (n == 5)
 				{
