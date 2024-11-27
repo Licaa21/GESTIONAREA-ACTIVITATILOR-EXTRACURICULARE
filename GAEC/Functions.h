@@ -43,7 +43,7 @@ void Inregistrare()
 	cout << "=         GAEC PROGRAM        =" << '\n';
 	cout << "===============================" << '\n';
 	cout << '\n';
-	cout << "Student inregistrat cu succes, apasati enter pentru a reveni la meniul principal." << '\n';
+	cout << "Student inregistrat cu succes, apasati enter pentru a reveni la meniul anterior." << '\n';
 	o.close();
 }
 bool isEmpty(const string& filePath) 
@@ -79,7 +79,15 @@ void Afisaretext()
 
 	if (isEmpty("Studenti.txt")) 
 	{
-		cout << "Nu exista niciun student inscris in program" << '\n';
+		cout << '\n';
+		cout << "===============================" << '\n';
+		cout << "=         GAEC PROGRAM        =" << '\n';
+		cout << "===============================" << '\n';
+		cout << '\n';
+		cout << "Nu exista niciun student inscris in program." << '\n';
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
+		return;
 	}
 	else 
 	{
@@ -94,7 +102,7 @@ void Afisaretext()
 			cout << line << '\n';
 		}
 		cout << '\n';
-		cout << "Apasati tasta enter pentru a reveni la meniul principal." << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
 		return;
 	}
 
@@ -119,9 +127,14 @@ void Changedata()
 	file.close();
 	if (lines.empty())
 	{
+		cout << '\n';
+		cout << "===============================" << '\n';
+		cout << "=         GAEC PROGRAM        =" << '\n';
+		cout << "===============================" << '\n';
+		cout << '\n';
 		cout << "Nu exista niciun student inscris in program." << '\n';
 		cout << '\n';
-		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
 		return;
 	}
 	cout << '\n';
@@ -133,12 +146,12 @@ void Changedata()
 	for (size_t i = 0; i < lines.size(); i++)
 		cout << i + 1 << ". " << lines[i] << '\n';
 	int nrstudent;
-	cout << "Introduceti numarul studentului pe care doriti sa il modificati ( 0 pentru a iesi ):" << '\n';
+	cout << "Introduceti numarul studentului pe care doriti sa il modificati. ( 0 pentru a iesi ):" << '\n';
 	cin >> nrstudent;
 	if (nrstudent == 0 || nrstudent > (int)lines.size())
 	{
 		cout << '\n';
-		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
 		return;
 	}
 	string nume, prenume, facultate, varsta;
@@ -155,12 +168,17 @@ void Changedata()
 			cout << "===============================" << '\n';
 			cout << '\n';
 			cout << "Student selectat:" << nume << " " << prenume << " " << facultate << " " << varsta <<"."<< '\n';
+			cout << '\n';
 			cout << "Ce doriti sa schimbati ?" << '\n';
-			cout << "1.Numele." << '\n';
-			cout << "2.Prenumele." << '\n';
-			cout << "3.Facultatea." << '\n';
-			cout << "4.Varsta." << '\n';
-			cout << "5.Finalizare modificari." << '\n';
+			cout << '\n';
+			cout << "1. Numele." << '\n';
+			cout << "2. Prenumele." << '\n';
+			cout << "3. Facultatea." << '\n';
+			cout << "4. Varsta." << '\n';
+			cout << "5. Finalizare modificari." << '\n';
+			cout << '\n';
+			cout << "Alegeti un numar pentru a continua. (1-5)" << '\n';
+
 			cin >> a;
 			switch (a) 
 			{
@@ -187,6 +205,8 @@ void Changedata()
 					break;
 				case 5:
 					cout << "Modificarile au fost salvate." << '\n';
+					cout << '\n';
+					cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
 					break;
 				default:
 					cout << "Optiune invalida. Incercati din nou." << '\n';
@@ -233,6 +253,9 @@ void StergereStudent()
 		cout << "===============================" << '\n';
 		cout << '\n';
 		cout << "Nu este niciun student inscris in programul nostru." << '\n';
+		cout << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
+		return;
 	}
 	cout << '\n';
 	cout << "===============================" << '\n';
@@ -250,7 +273,7 @@ void StergereStudent()
 	if (nrstudent == 0)
 	{
 		cout << '\n';
-		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
 		return;
 	}
 
@@ -261,9 +284,9 @@ void StergereStudent()
 		cout << "=         GAEC PROGRAM        =" << '\n';
 		cout << "===============================" << '\n';
 		cout << '\n';
-		cout << "Numarul studentului este invalid" << '\n';
+		cout << "Numarul studentului este invalid." << '\n';
 		cout << '\n';
-		cout << "Apasati tasta enter pentru a reveni la meniul principal" << '\n';
+		cout << "Apasati tasta enter pentru a reveni la meniul anterior." << '\n';
 		return;
 	}
 
@@ -311,6 +334,7 @@ void FirstMenu()
 		cout << '\n';
 		cout << "4. Inchiderea programului." << '\n';
 		cout << '\n';
+		cout << "Alegeti un numar pentru a continua. (1-4)" << '\n';
 		cin >> n;
 		cout << '\n';
 
@@ -325,16 +349,17 @@ void FirstMenu()
 				cout << "=         GAEC PROGRAM        =" << '\n';
 				cout << "===============================" << '\n';
 				cout << '\n';
-				cout << "1.Inscrierea unui student in program." << '\n';
+				cout << "1. Inscrierea unui student in program." << '\n';
 				cout << '\n';
-				cout << "2.Afisarea listei tuturor studentilor inscrisi in program." << '\n';
+				cout << "2. Afisarea listei tuturor studentilor inscrisi in program." << '\n';
 				cout << '\n';
-				cout << "3.Schimbarea datelor unui student in program." << '\n';
+				cout << "3. Schimbarea datelor unui student in program." << '\n';
 				cout << '\n';
-				cout << "4.Stergerea unui student din program." << '\n';
+				cout << "4. Stergerea unui student din program." << '\n';
 				cout << '\n';
-				cout << "5.Inapoi la meniul principal." << '\n';
+				cout << "5. Inapoi la meniul principal." << '\n';
 				cout << '\n';
+				cout << "Alegeti un numar pentru a continua. (1-5)" << '\n';
 				cin >> n;
 				cout << '\n';
 				if (n == 1)
