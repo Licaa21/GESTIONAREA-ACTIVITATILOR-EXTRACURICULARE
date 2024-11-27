@@ -25,6 +25,23 @@ void Inregistrare()
 	cout << endl;
 	o.close();
 }
+void Afisaretext()
+{
+	ifstream file("Studenti.txt");
+	if (!file) 
+	{
+		cerr << "Error opening file!" << endl;
+		return;
+	}
+
+	string line;
+	while (getline(file, line)) 
+	{ 
+		cout << line << endl;
+	}
+
+	file.close();
+}
 
 void FirstMenu()
 {
@@ -57,7 +74,7 @@ void FirstMenu()
 
 		if (n == 1)
 		{
-			int stopthis = 1;;
+			int stopthis = 1;
 			while (stopthis > 0)
 			{
 				#ifdef _WIN32
@@ -87,6 +104,12 @@ void FirstMenu()
 					Inregistrare();
 					cout << "Student inregistrat cu succes!" << '\n';
 					cout << endl;
+					cin.ignore();
+					cin.get();
+				}
+				else if (n == 2)
+				{
+					Afisaretext();
 					cin.ignore();
 					cin.get();
 				}
