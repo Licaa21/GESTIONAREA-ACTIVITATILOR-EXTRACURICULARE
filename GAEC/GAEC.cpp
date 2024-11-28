@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Functions.h"
+#include "FunctionP.h"
+#include "Club.cpp";
 using namespace std;
 
 int main()

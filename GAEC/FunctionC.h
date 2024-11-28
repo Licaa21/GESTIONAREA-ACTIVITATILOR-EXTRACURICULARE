@@ -1,0 +1,11 @@
+#pragma once
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <string>
+#include <sstream>
+#include <vector>
+#include "FunctionsS.h"
+#include "FunctionP.h"
+#include "Student.h"
+#include "Club.h"
