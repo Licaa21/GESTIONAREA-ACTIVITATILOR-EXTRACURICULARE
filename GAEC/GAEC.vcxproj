@@ -135,7 +135,7 @@
     <ClInclude Include="Club.h" />
     <ClInclude Include="FunctionC.h" />
     <ClInclude Include="FunctionP.h" />
-    <ClInclude Include="FunctionsS.h" />
+    <ClInclude Include="FunctionS.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>

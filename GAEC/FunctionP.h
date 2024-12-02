@@ -6,7 +6,7 @@
 #include <sstream>
 #include <vector>
 #include "Student.h"
-#include "FunctionsS.h"
+#include "FunctionS.h"
 #include "FunctionC.h"
 
 void FirstMenu()

@@ -26,16 +26,16 @@ void Inregistrare()
 	cout << "=         GAEC PROGRAM        =" << '\n';
 	cout << "===============================" << '\n';
 	cout << '\n';
-	cout << "Numele:";
+	cout << "Numele: ";
 	cin >> s.Nume;
 	o << s.Nume << " ";
-	cout << "Prenumele:";
+	cout << "Prenumele: ";
 	cin >> s.Prenume;
 	o << s.Prenume << " ";
-	cout << "Facultatea:";
+	cout << "Facultatea: ";
 	cin >> s.Facultate;
 	o << s.Facultate << " ";
-	cout << "Varsta:";
+	cout << "Varsta: ";
 	cin >> s.Varsta;
 	o << s.Varsta << " ";
 	o << '\n';
@@ -127,7 +127,7 @@ void Changedata()
 		lines.push_back(line);
 	}
 	file.close();
-	if (lines.empty())
+	if (isEmpty("Studenti.txt"))
 	{
 		cout << '\n';
 		cout << "===============================" << '\n';
@@ -247,7 +247,7 @@ void StergereStudent()
 	}
 	file.close();
 
-	if (lines.empty())
+	if (isEmpty("Studenti.txt"))
 	{
 		cout << '\n';
 		cout << "===============================" << '\n';
@@ -294,17 +294,17 @@ void StergereStudent()
 
 	lines.erase(lines.begin() + nrstudent - 1);
 
-	ofstream outFile("Studenti.txt");
-	if (!outFile.is_open())
+	ofstream oFile("Studenti.txt");
+	if (!oFile.is_open())
 	{
 		cerr << "S-a produs o eroare." << '\n';
 		return;
 	}
 	for (const auto& l : lines)
 	{
-		outFile << l << endl;
+		oFile << l << endl;
 	}
-	outFile.close();
+	oFile.close();
 	system("cls");
 	cout << '\n';
 	cout << "===============================" << '\n';

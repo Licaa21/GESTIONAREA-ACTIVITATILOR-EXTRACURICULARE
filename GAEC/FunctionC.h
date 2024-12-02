@@ -5,7 +5,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include "FunctionsS.h"
+#include "FunctionS.h"
 #include "FunctionP.h"
 #include "Student.h"
 #include "Club.h"

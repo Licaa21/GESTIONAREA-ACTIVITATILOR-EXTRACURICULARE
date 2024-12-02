@@ -32,7 +32,7 @@
     <ClInclude Include="Club.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FunctionsS.h">
+    <ClInclude Include="FunctionS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FunctionC.h">
