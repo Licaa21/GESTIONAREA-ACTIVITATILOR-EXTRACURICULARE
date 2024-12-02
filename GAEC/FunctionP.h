@@ -61,34 +61,36 @@ void FirstMenu()
 				cout << '\n';
 				cin >> n;
 				cout << '\n';
-				if (n == 1)
+				switch (n)
 				{
-					Inregistrare();
-					cin.ignore();
-					cin.get();
-				}
-				else if (n == 2)
-				{
-					Afisaretext();
-					cin.ignore();
-					cin.get();
-				}
-				else if (n == 3)
-				{
-					Changedata();
-					cin.ignore();
-					cin.get();
+					case 1:
+						Inregistrare();
+						cin.ignore();
+						cin.get();
+					
+					case 2 :
 
-				}
-				else if (n == 4)
-				{
-					StergereStudent();
-					cin.ignore();
-					cin.get();
-				}
-				else if (n == 5)
-				{
-					stopthis = 0;
+						Afisaretext();
+						cin.ignore();
+						cin.get();
+
+					case 3 :
+
+						Changedata();
+						cin.ignore();
+						cin.get();
+
+
+					case 4 :
+
+						StergereStudent();
+						cin.ignore();
+						cin.get();
+
+					case 5 :
+
+						stopthis = 0;
+
 				}
 			}
 		}
