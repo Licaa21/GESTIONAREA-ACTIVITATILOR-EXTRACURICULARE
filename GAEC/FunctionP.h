@@ -27,7 +27,7 @@ void FirstMenu()
 		cout << '\n';
 		cout << "2. Meniul de administratie." << '\n';
 		cout << '\n';
-		cout << "3. Gestionarea evenimentelor." << '\n';
+		cout << "3. Gestionarea cluburilor." << '\n';
 		cout << '\n';
 		cout << "4. Inchiderea programului." << '\n';
 		cout << '\n';
@@ -61,34 +61,36 @@ void FirstMenu()
 				cout << '\n';
 				cin >> n;
 				cout << '\n';
-				if (n == 1)
+				switch (n)
 				{
-					Inregistrare();
-					cin.ignore();
-					cin.get();
-				}
-				else if (n == 2)
-				{
-					Afisaretext();
-					cin.ignore();
-					cin.get();
-				}
-				else if (n == 3)
-				{
-					Changedata();
-					cin.ignore();
-					cin.get();
+					case 1:
+						Inregistrare();
+						cin.ignore();
+						cin.get();
+					
+					case 2 :
 
-				}
-				else if (n == 4)
-				{
-					StergereStudent();
-					cin.ignore();
-					cin.get();
-				}
-				else if (n == 5)
-				{
-					stopthis = 0;
+						Afisaretext();
+						cin.ignore();
+						cin.get();
+
+					case 3 :
+
+						Changedata();
+						cin.ignore();
+						cin.get();
+
+
+					case 4 :
+
+						StergereStudent();
+						cin.ignore();
+						cin.get();
+
+					case 5 :
+
+						stopthis = 0;
+
 				}
 			}
 		}
@@ -103,15 +105,15 @@ void FirstMenu()
 				cout << "=         GAEC PROGRAM        =" << '\n';
 				cout << "===============================" << '\n';
 				cout << '\n';
-				cout << "1. Creearea unui eveniment. " << '\n';
+				cout << "1. Creearea unui club. " << '\n';
 				cout << '\n';
-				cout << "2. Asignarea unui student pentru participare la eveniment." << '\n';
+				cout << "2. Adaugarea unui student intr-un club." << '\n';
 				cout << '\n';
-				cout << "3. Schimbarea datelor unui eveniment." << '\n';
+				cout << "3. Schimbarea datelor unui club." << '\n';
 				cout << '\n';
-				cout << "4. Stergerea unui student din eveniment." << '\n';
+				cout << "4. Stergerea unui student din club." << '\n';
 				cout << '\n';
-				cout << "5. Afisarea datelor unui eveniment" << '\n';
+				cout << "5. Afisarea datelor unui club" << '\n';
 				cout << '\n';
 				cout << "Alegeti un numar pentru a continua. (1-5)" << '\n';
 				cout << '\n';
