@@ -214,9 +214,9 @@ void Changedata()
 					cout << "Optiune invalida. Incercati din nou." << '\n';
 			}
 	} while (a != 5);
-	ostringstream updatedLine;
-	updatedLine << nume << " " << prenume << " " << facultate << " " << varsta;
-	lines[nrstudent - 1] = updatedLine.str();
+	ostringstream update;
+	update << nume << " " << prenume << " " << facultate << " " << varsta;
+	lines[nrstudent - 1] = update.str();
 	ofstream outFile("Studenti.txt");
 	if (!outFile.is_open())
 	{
